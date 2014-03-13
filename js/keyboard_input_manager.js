@@ -87,6 +87,27 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
+  var btn_up = document.getElementsByClassName("btn-up")[0];
+  var btn_left = document.getElementsByClassName("btn-left")[0];
+  var btn_right = document.getElementsByClassName("btn-right")[0];
+  var btn_down = document.getElementsByClassName("btn-down")[0];
+
+  btn_up.addEventListener("click", function (event) {
+      self.emit("move", 0);
+  });
+
+  btn_left.addEventListener("click", function (event) {
+      self.emit("move", 3);
+  });
+
+  btn_right.addEventListener("click", function (event) {
+      self.emit("move", 1);
+  });
+
+  btn_down.addEventListener("click", function (event) {
+      self.emit("move", 2);
+  });
+
 };
 
 KeyboardInputManager.prototype.restart = function (event) {
